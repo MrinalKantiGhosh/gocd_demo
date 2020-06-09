@@ -3,7 +3,7 @@ pipelines:
     group: demo_app
     materials:
       int_code_base: #name of material
-        git: https://github.com/ThoughtWorksInc/gocd_demo.git
+        git: https://github.com/MrinalKantiGhosh/gocd_demo.git
     environment_variables:
       IMAGE_NAME: gocd_demo_app 
       IMAGE_VERSION: latest
