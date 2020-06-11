@@ -96,7 +96,7 @@ pipelines:
     environment_variables:
       IMAGE_NAME: gocd_demo_app 
       IMAGE_VERSION: latest
-      DOCKERHUB_USERNAME: ashikansal #replace it by your own username
+      DOCKERHUB_USERNAME: mrinal2196 #replace it by your own username
     stages:
       - deploy_app: # name of stage
           jobs:
@@ -151,7 +151,7 @@ pipelines:
     environment_variables:
       IMAGE_NAME: gocd_demo_app 
       IMAGE_VERSION: latest
-      DOCKERHUB_USERNAME: ashikansal #replace it by your own username
+      DOCKERHUB_USERNAME: mrinal2196 #replace it by your own username
     stages:
       - waiting_zone: # name of stage
           jobs:
