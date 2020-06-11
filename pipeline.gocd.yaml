@@ -101,6 +101,10 @@ pipelines:
       - deploy_app: # name of stage
           jobs:
             deploy_app:
+              artifacts:
+                - build:
+                    source: ./cleanup.sh
+                    destination: cleanup/
               tasks: 
                 - fetch:
                     artifact_origin: external
@@ -140,8 +144,6 @@ pipelines:
   demo_app_prod:
     group: demo_app
     materials:
-      prod_code_base: #name of material
-        git: https://github.com/MrinalKantiGhosh/gocd_demo.git
       qa_upstream:
         pipeline: demo_app_qa
         stage: health_check
@@ -153,8 +155,18 @@ pipelines:
       IMAGE_VERSION: latest
       DOCKERHUB_USERNAME: mrinal2196 #replace it by your own username
     stages:
-      - waiting_zone: # name of stage
+      - fetch_and_waiting_zone: # name of stage
           jobs:
+            fetch_artifact:
+              tasks:
+                - fetch:
+                    run_if: passed
+                    artifact_origin: gocd # default value
+                    pipeline: demo_app_qa
+                    stage: deploy_app
+                    job: deploy_app
+                    source: cleanup/
+                    destination: cleanup/
             waiting_zone:
               tasks:
                 - exec:
@@ -178,7 +190,7 @@ pipelines:
                     command: bash
                     arguments:
                       - -c
-                      - ./cleanup.sh gocd_demo_app_prod               
+                      - ./cleanup/cleanup.sh gocd_demo_app_prod
                 - exec:
                     command: bash
                     arguments:
