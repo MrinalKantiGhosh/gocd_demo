@@ -155,18 +155,8 @@ pipelines:
       IMAGE_VERSION: latest
       DOCKERHUB_USERNAME: mrinal2196 #replace it by your own username
     stages:
-      - fetch_and_waiting_zone: # name of stage
+      - waiting_zone: # name of stage
           jobs:
-            fetch_artifact:
-              tasks:
-                - fetch:
-                    run_if: passed
-                    artifact_origin: gocd # default value
-                    pipeline: demo_app_qa
-                    stage: deploy_app
-                    job: deploy_app
-                    source: cleanup/
-                    destination: cleanup/
             waiting_zone:
               tasks:
                 - exec:
@@ -180,6 +170,13 @@ pipelines:
           jobs:
             deploy_app:
               tasks:
+                - fetch:
+                    run_if: passed
+                    artifact_origin: gocd # default value
+                    pipeline: demo_app_qa
+                    stage: deploy_app
+                    job: deploy_app
+                    source: cleanup/
                 - fetch:
                     artifact_origin: external
                     pipeline: demo_app_int/demo_app_qa
