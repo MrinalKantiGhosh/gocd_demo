@@ -188,7 +188,7 @@ pipelines:
                     command: bash
                     arguments:
                       - -c
-                      - ./cleanup/cleanup.sh gocd_demo_app_prod
+                      - chmod +x cleanup/cleanup.sh && ./cleanup/cleanup.sh gocd_demo_app_prod
                 - exec:
                     command: bash
                     arguments:
