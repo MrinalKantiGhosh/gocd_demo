@@ -176,6 +176,7 @@ pipelines:
                       - echo "waiting for prod deployment to trigger"              
       - deploy_app: # name of stage
           approval: manual
+          allow_only_on_success: true
           jobs:
             deploy_app:
               tasks:
