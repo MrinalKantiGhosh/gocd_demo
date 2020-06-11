@@ -89,7 +89,7 @@ pipelines:
     group: demo_app
     materials:
       qa_code_base: #name of material
-        git: https://github.com/ThoughtWorksInc/gocd_demo.git
+        git: https://github.com/MrinalKantiGhosh/gocd_demo.git
       qa_upstream:
         pipeline: demo_app_int
         stage: health_check
@@ -141,7 +141,7 @@ pipelines:
     group: demo_app
     materials:
       prod_code_base: #name of material
-        git: https://github.com/ThoughtWorksInc/gocd_demo.git
+        git: https://github.com/MrinalKantiGhosh/gocd_demo.git
       qa_upstream:
         pipeline: demo_app_qa
         stage: health_check
