@@ -103,7 +103,7 @@ pipelines:
             deploy_app:
               artifacts:
                 - build:
-                    source: ./cleanup.sh
+                    source: cleanup.sh
                     destination: cleanup/
               tasks: 
                 - fetch:
