@@ -91,6 +91,7 @@ pipelines:
     materials:
       qa_code_base: #name of material
         git: https://github.com/MrinalKantiGhosh/gocd_demo.git
+        auto_update: false
       qa_upstream:
         pipeline: demo_app_int
         stage: health_check
