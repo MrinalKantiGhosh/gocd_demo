@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#comment added for feature branch test
 #check if container exist with given name, delete it
 name=$1
 
